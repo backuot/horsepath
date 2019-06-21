@@ -1,14 +1,14 @@
-package com.horsepath.service;
+package com.knightmoves.service;
 
 import java.lang.Math;
-import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Map;
+import java.util.HashMap;
 
-public class HorsePath {
-    private static int row[] = { 2, 2, -2, -2, 1, 1, -1, -1 };
-    private static int column[] = { -1, 1, 1, -1, 2, -2, 2, -2 };
+public class ChessKnight {
+    private static int[] row = { 2, 2, -2, -2, 1, 1, -1, -1 };
+    private static int[] column = { -1, 1, 1, -1, 2, -2, 2, -2 };
 
     public static int getYCoordinate(String position) {
         for (int i = position.length() - 1; i >= 0; i--) {
@@ -47,6 +47,7 @@ public class HorsePath {
 
         return true;
     }
+
     public static int bfs(Node start, Node end, int width, int height) {
         Map<Node, Boolean> visited = new HashMap<>();
         Queue<Node> q = new ArrayDeque<>();

@@ -1,25 +1,26 @@
-package com.horsepath.controllers;
+package com.knightmoves.controllers;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import static com.horsepath.service.HorsePath.getXCoordinate;
-import static com.horsepath.service.HorsePath.getYCoordinate;
-import static com.horsepath.service.HorsePath.count;
+import static com.knightmoves.service.ChessKnight.getXCoordinate;
+import static com.knightmoves.service.ChessKnight.getYCoordinate;
+import static com.knightmoves.service.ChessKnight.count;
 
 @RestController
-@RequestMapping("/horse/rest")
+@RequestMapping("/knight/rest")
 public class SpringHandler {
-    @GetMapping("/count")
-    public int getCount(@RequestParam("width") int width,
+    @GetMapping(value = "/count", produces = { "text/plain" })
+    public ResponseEntity<String> getCount(@RequestParam("width") int width,
                            @RequestParam("height") int height,
                            @RequestParam("start") String start,
                            @RequestParam("end") String end) {
-        return count(width, height,
+        return ResponseEntity.ok(String.valueOf(count(width, height,
                 getXCoordinate(start),
                 getYCoordinate(start),
                 getXCoordinate(end),
-                getYCoordinate(end));
+                getYCoordinate(end))));
     }
 }

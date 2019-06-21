@@ -1,12 +1,12 @@
-package com.horsepath.configuration;
+package com.knightmoves.configuration;
 
-import com.horsepath.controllers.ServletHandler;
+import com.knightmoves.controllers.ServletHandler;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 import javax.ws.rs.ApplicationPath;
 
 @Component
-@ApplicationPath("/horse/servlet")
+@ApplicationPath("/knight/servlet")
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         register(ServletHandler.class);

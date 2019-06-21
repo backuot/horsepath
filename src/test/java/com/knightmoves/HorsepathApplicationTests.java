@@ -1,4 +1,4 @@
-package com.horsepath;
+package com.knightmoves;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

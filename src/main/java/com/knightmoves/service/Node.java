@@ -1,4 +1,4 @@
-package com.horsepath.service;
+package com.knightmoves.service;
 
 public class Node {
     int x, y, distance;
@@ -8,10 +8,10 @@ public class Node {
         this.y = y;
     }
 
-    public Node(int x, int y, int dist) {
+    public Node(int x, int y, int distance) {
         this.x = x;
         this.y = y;
-        this.distance = dist;
+        this.distance = distance;
     }
 
     @Override
