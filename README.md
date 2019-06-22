@@ -5,6 +5,9 @@
    * Java 1.8
    * Maven 3.6.1
    * Spring Boot 2.1.6
+   * JAX-RS
+   * Tomcat
+   * JUnit
       
    ## Installation   
    git clone and install dependencies
@@ -29,3 +32,10 @@
    ```
    $ curl -i "http://localhost:8080/knight/rest/count?width=8&height=8&start=A1&end=E8"
    ```
+   
+  ## Authors
+  * **Dmitry Nazarov**
+  
+  ## License
+  
+  This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

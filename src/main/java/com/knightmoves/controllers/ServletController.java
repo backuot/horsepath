@@ -6,13 +6,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
-import static com.knightmoves.service.ChessKnight.count;
-import static com.knightmoves.service.ChessKnight.getXCoordinate;
-import static com.knightmoves.service.ChessKnight.getYCoordinate;
+import static com.knightmoves.services.ChessKnight.count;
+import static com.knightmoves.services.ChessKnight.getXCoordinate;
+import static com.knightmoves.services.ChessKnight.getYCoordinate;
 
 @Component
 @Path("/")
-public class ServletHandler {
+public class ServletController {
     @GET
     @Path("/count")
     @Produces("text/plain")

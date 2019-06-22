@@ -1,4 +1,4 @@
-package com.knightmoves.service;
+package com.knightmoves.services;
 
 public class Node {
     int x, y, distance;

@@ -1,4 +1,4 @@
-package com.knightmoves.service;
+package com.knightmoves.services;
 
 import java.lang.Math;
 import java.util.Queue;
@@ -37,11 +37,11 @@ public class ChessKnight {
         return result - 1;
     }
 
-    public static int count(int width, int height, int x1, int y1, int x2, int y2) {
+    public static int count(int x1, int y1, int x2, int y2, int width, int height) {
         return bfs(new Node(x1, y1), new Node(x2, y2), width, height);
     }
 
-    private static boolean valid(int x, int y, int width, int height) {
+    public static boolean valid(int x, int y, int width, int height) {
         if (x < 0 || y < 0 || x >= width || y >= height)
             return false;
 
