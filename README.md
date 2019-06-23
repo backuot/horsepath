@@ -1,6 +1,14 @@
    # Chess Knight's Minimum Moves REST API
-   Description...
+   For chessboard of M x N size, given the position of knight and position of target. Need to find, 
+   out minimum steps a Knight, will take to reach the target position. 
    
+   This problem can be seen as shortest path in unweighted graph. For solution this problem uses 
+   Breadth-first search (BFS) algorithm. We try all 8 possible positions of a Knight, and 
+   if reachable position is not already visited and is inside the board, we push this position 
+   into queue with distance 1 more than its parent position. We are implements BFS for searching 
+   through nodes, where each node contains its coordinate and distance from starting node. 
+   In worst case, algorithm visits all nodes of board, making worst-case time complexity as O(N^2).
+
    ## Dependencies
    * Oracle JDK 1.8
    * Maven 3.6.1
