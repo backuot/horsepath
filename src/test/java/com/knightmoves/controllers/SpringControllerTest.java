@@ -35,10 +35,10 @@ public class SpringControllerTest {
     @Test
     public void testWidthNegative() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "-1")
-                .param("height", "8")
-                .param("start", "A1")
-                .param("end", "B8"))
+                    .param("width", "-1")
+                    .param("height", "8")
+                    .param("start", "A1")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid width."));
     }
@@ -46,10 +46,10 @@ public class SpringControllerTest {
     @Test
     public void testHeightZero() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "0")
-                .param("start", "A1")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "0")
+                    .param("start", "A1")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid height."));
     }
@@ -57,10 +57,10 @@ public class SpringControllerTest {
     @Test
     public void testHeightNegative() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "-1")
-                .param("start", "A1")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "-1")
+                    .param("start", "A1")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid height."));
     }
@@ -68,10 +68,10 @@ public class SpringControllerTest {
     @Test
     public void testStartZero() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A0")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A0")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid start."));
     }
@@ -79,10 +79,10 @@ public class SpringControllerTest {
     @Test
     public void testStartNegative() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A-1")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A-1")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid start."));
     }
@@ -90,10 +90,10 @@ public class SpringControllerTest {
     @Test
     public void testStartWidthExceeded() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "I1")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "I1")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid start."));
     }
@@ -101,10 +101,10 @@ public class SpringControllerTest {
     @Test
     public void testStartHeightExceeded() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A9")
-                .param("end", "B8"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A9")
+                    .param("end", "B8"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid start."));
     }
@@ -112,10 +112,10 @@ public class SpringControllerTest {
     @Test
     public void testEndZero() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A1")
-                .param("end", "B0"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A1")
+                    .param("end", "B0"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid end."));
     }
@@ -123,10 +123,10 @@ public class SpringControllerTest {
     @Test
     public void testEndNegative() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A1")
-                .param("end", "B-1"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A1")
+                    .param("end", "B-1"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid end."));
     }
@@ -134,10 +134,10 @@ public class SpringControllerTest {
     @Test
     public void testEndWidthExceeded() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A1")
-                .param("end", "M1"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A1")
+                    .param("end", "M1"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid end."));
     }
@@ -145,10 +145,10 @@ public class SpringControllerTest {
     @Test
     public void testEndHeightExceeded() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "A1")
-                .param("end", "B9"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "A1")
+                    .param("end", "B9"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Not valid end."));
     }
@@ -156,10 +156,10 @@ public class SpringControllerTest {
     @Test
     public void testMoveInputData_1() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "8")
-                .param("height", "8")
-                .param("start", "B1")
-                .param("end", "A3"))
+                    .param("width", "8")
+                    .param("height", "8")
+                    .param("start", "B1")
+                    .param("end", "A3"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("1"));
     }
@@ -167,10 +167,10 @@ public class SpringControllerTest {
     @Test
     public void testMoveInputData_2() throws Exception {
         this.mockMvc.perform(get("/knight/rest/count/")
-                .param("width", "30")
-                .param("height", "30")
-                .param("start", "A1")
-                .param("end", "AD30"))
+                    .param("width", "30")
+                    .param("height", "30")
+                    .param("start", "A1")
+                    .param("end", "AD30"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("20"));
     }

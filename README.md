@@ -17,8 +17,12 @@
    ```
    
    ## Run
+   For run server:
    ```
    $ mvn spring-boot:run
+   ```
+   For run tests:
+   ```
    $ mvn test
    ```
    
