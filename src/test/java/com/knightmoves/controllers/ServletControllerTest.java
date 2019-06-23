@@ -26,4 +26,107 @@ public class ServletControllerTest {
         assertThat(entity.getBody()).isEqualTo("Not valid width.");
     }
 
+    @Test
+    public void testWidthNegative() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=-1&height=8&start=A1&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid width.");
+    }
+
+    @Test
+    public void testHeightZero() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=0&start=A1&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid height.");
+    }
+
+    @Test
+    public void testHeightNegative() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=-1&start=A1&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid height.");
+    }
+
+    @Test
+    public void testStartZero() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A0&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid start.");
+    }
+
+    @Test
+    public void testStartNegative() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A-1&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid start.");
+    }
+
+    @Test
+    public void testStartWidthExceeded() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=I1&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid start.");
+    }
+
+    @Test
+    public void testStartHeightExceeded() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A9&end=B8", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid start.");
+    }
+
+    @Test
+    public void testEndZero() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A1&end=B0", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid end.");
+    }
+
+    @Test
+    public void testEndNegative() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A1&end=B-1", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid end.");
+    }
+
+    @Test
+    public void testEndWidthExceeded() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A1&end=M1", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid end.");
+    }
+
+    @Test
+    public void testEndHeightExceeded() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=A1&end=B9", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(entity.getBody()).isEqualTo("Not valid end.");
+    }
+
+    @Test
+    public void testMoveInputData_1() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=8&height=8&start=B1&end=A3", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(entity.getBody()).isEqualTo("1");
+    }
+
+    @Test
+    public void testMoveInputData_2() {
+        ResponseEntity<String> entity = this.restTemplate
+                .getForEntity("/knight/servlet/count?width=30&height=30&start=A1&end=AD30", String.class);
+        assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(entity.getBody()).isEqualTo("20");
+    }
 }
