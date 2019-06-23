@@ -5,7 +5,7 @@
    This problem can be seen as shortest path in unweighted graph. For solution this problem uses 
    Breadth-first search (BFS) algorithm. We try all 8 possible positions of a Knight, and 
    if reachable position is not already visited and is inside the board, we push this position 
-   into queue with distance 1 more than its parent position. We are implements BFS for searching 
+   into queue with distance 1 more than its parent position. We implements BFS for searching 
    through nodes, where each node contains its coordinate and distance from starting node. 
    In worst case, algorithm visits all nodes of board, making worst-case time complexity as O(N^2).
 
@@ -20,7 +20,7 @@
    ## Installation
    ```
    $ git clone https://github.com/backuot/knightmoves.git
-   $ cd /knightmoves
+   $ cd knightmoves
    $ mvn install
    ```
    
